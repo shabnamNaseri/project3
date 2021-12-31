@@ -1,10 +1,14 @@
 package model;
 
 import controller.DataBase;
+import controller.MainPageController;
+
+import javax.swing.text.TableView;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class User {
+public class User{
 
     private  int id = -1;
     private String name;
@@ -13,10 +17,14 @@ public class User {
     private String password;
     private int hashPassword;
     private String phoneNumber;
-    static ArrayList<User> userArrayList = new ArrayList<>();
+    private static ArrayList<User> userArrayList = new ArrayList<>();
+    private MainPageController mainPageController;
+
+    public  User(MainPageController mainPageController)
+    {this.mainPageController = mainPageController;}
 
 
-    public User( int id,String name, String lastName, String userName, String password, int passwordHash, String phoneNumber) {
+    public User(int id,String name, String lastName, String userName, String password, int passwordHash, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -24,6 +32,12 @@ public class User {
         this.password = password;
         this.hashPassword = passwordHash;
         this.phoneNumber = phoneNumber;
+    }
+
+    public User(String name ,String lastName)
+    {
+        this.name = name;
+        this.lastName = lastName;
     }
 
     public User() {}
@@ -44,7 +58,6 @@ public class User {
 
     public int getHashPassword()
     {
-        hashPassword = password.hashCode();
         return hashPassword;
     }
 
@@ -86,18 +99,17 @@ public class User {
     public void setPhoneNumber(String phoneNumber)
     {this.phoneNumber = phoneNumber;}
 
-    public ArrayList<User> getUserArrayList() {
-        return userArrayList;
-    }
+    public static ArrayList<User> getUserArrayList()
+    {return userArrayList;}
 
     public void setUserArrayList(ArrayList<User> userArrayList) {
-        this.userArrayList = userArrayList;
+        User.userArrayList = userArrayList;
     }
 
     public static ArrayList<User> getUsers()
     {
         try {
-            return DataBase.users();
+            return DataBase.getUsers();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -110,6 +122,11 @@ public class User {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void addUserTable()
+    {
+        mainPageController.getTableview().getItems().addAll(Objects.requireNonNull(getUsers()));
     }
 
 

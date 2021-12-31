@@ -46,14 +46,13 @@ public class ViewProfileController implements Initializable {
         editLBL.setText("");
         exitBTN.setOnAction(event -> exit());
         EditBTN.setOnAction(event -> EditProfile());
-
-
-
     }
+
     public void exit(){
         ((Stage)exitBTN.getScene().getWindow()).close();
 
     }
+
     public void EditProfile(){
         nameText.setText(nameText.getText());
         bioText.setText(bioText.getText());

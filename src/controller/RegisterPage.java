@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import model.User;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class RegisterPage implements Initializable {
@@ -45,11 +44,13 @@ public class RegisterPage implements Initializable {
         @FXML
         private Label Labell;
 
+
         @Override
-        public void initialize(URL location, ResourceBundle resources)
-        {
+        public void initialize(URL location, ResourceBundle resources) {
                 errorLBL.setText("");
-                ExitBTN.setOnAction(e -> exit());
+                ExitBTN.setOnAction(e -> {
+                        exit();
+                });
                 RegisterBTN.setOnAction(e -> {
                         try {
                                 createUser();
@@ -59,9 +60,7 @@ public class RegisterPage implements Initializable {
                 });
 
         }
-
-        public boolean checkFields()
-        {
+        public boolean checkFields(){
                 if (name.getText().isEmpty() || lastname.getText().isEmpty()
                         || username.getText().isEmpty() || phonenumber.getText().isEmpty()
                         || password.getText().isEmpty() || confirmpassword.getText().isEmpty()){
@@ -74,18 +73,16 @@ public class RegisterPage implements Initializable {
                 return true;
         }
 
-        public void exit()
-        {
+        public void exit(){
                 ((Stage)ExitBTN.getScene().getWindow()).close();
                 Loginpagecontroller.registerStage = null;
         }
 
-        public void createUser() throws Exception
-        {
+        public void createUser() throws Exception {
                 if (checkFields()){
-                        if (checkPass()) {
-                                User user = new User(name.getText(), lastname.getText(), username.getText()
-                                        , password.getText(), phonenumber.getText());
+                        if (checkPass()){
+                                User user =new User(name.getText() , lastname.getText(),username.getText()
+                                        ,password.getText(), phonenumber.getText());
                                 user.getUserArrayList().add(user);
                                 user.saveuser();
                                 clear();
@@ -93,8 +90,7 @@ public class RegisterPage implements Initializable {
                 }
         }
 
-        public boolean checkPass()
-        {
+        public boolean checkPass(){
                 if (!password.getText().equals(confirmpassword.getText())){
                         errorLBL.setText("Passwords do not match !!");
                         errorLBL.setAlignment(Pos.CENTER);
@@ -104,19 +100,7 @@ public class RegisterPage implements Initializable {
                 return true;
         }
 
-        public boolean checkUsername() throws Exception {
-                ArrayList<User> users = User.getUsers();
-                for (User each : users)
-                {
-                        if(each.getUserName().equals(username.getText()))
-                        {errorLBL.setText("Username Already Entred!!");}
-                        return false;
-                }
-                return true;
-        }
-
-        public void clear()
-        {
+        public void clear(){
                 name.setText("");
                 lastname.setText("");
                 username.setText("");
@@ -127,8 +111,11 @@ public class RegisterPage implements Initializable {
                 errorLBL.setText("User successfully created ");
                 errorLBL.setAlignment(Pos.CENTER);
                 errorLBL.setTextFill(Paint.valueOf(("#006600")));
-
-
-
         }
+
+        public TextField getName()
+        {return name;}
+
+        public TextField getLastname()
+        {return lastname;}
 }
