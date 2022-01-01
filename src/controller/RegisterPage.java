@@ -60,7 +60,9 @@ public class RegisterPage implements Initializable {
                 });
 
         }
-        public boolean checkFields(){
+
+        public boolean checkFields()
+        {
                 if (name.getText().isEmpty() || lastname.getText().isEmpty()
                         || username.getText().isEmpty() || phonenumber.getText().isEmpty()
                         || password.getText().isEmpty() || confirmpassword.getText().isEmpty()){
@@ -73,9 +75,10 @@ public class RegisterPage implements Initializable {
                 return true;
         }
 
-        public void exit(){
+        public void exit()
+        {
                 ((Stage)ExitBTN.getScene().getWindow()).close();
-                Loginpagecontroller.registerStage = null;
+                LoginPageController.registerStage = null;
         }
 
         public void createUser() throws Exception {
@@ -84,7 +87,7 @@ public class RegisterPage implements Initializable {
                                 User user =new User(name.getText() , lastname.getText(),username.getText()
                                         ,password.getText(), phonenumber.getText());
                                 user.getUserArrayList().add(user);
-                                user.saveuser();
+                                user.saveUser();
                                 clear();
                         }
                 }
@@ -113,9 +116,4 @@ public class RegisterPage implements Initializable {
                 errorLBL.setTextFill(Paint.valueOf(("#006600")));
         }
 
-        public TextField getName()
-        {return name;}
-
-        public TextField getLastname()
-        {return lastname;}
 }

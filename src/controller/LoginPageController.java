@@ -15,7 +15,7 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import model.User;
 
-public class Loginpagecontroller implements Initializable {
+public class LoginPageController implements Initializable {
     @FXML
     private AnchorPane anchorpane;
 
@@ -48,10 +48,11 @@ public class Loginpagecontroller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         errorlabel.setText("");
         RegisterBTN.setOnAction(e -> {
             try {
-                openregisterpage();
+                openRegisterPage();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -60,7 +61,6 @@ public class Loginpagecontroller implements Initializable {
         LoginBTN.setOnAction(event -> {
             try {
                 openMainPage();
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -68,7 +68,8 @@ public class Loginpagecontroller implements Initializable {
 
     }
 
-    public void openregisterpage() throws Exception{
+    public void openRegisterPage() throws Exception
+    {
         if (registerStage == null) {
             AnchorPane root = FXMLLoader.load(getClass().getResource("../view/RegisterPage.fxml"));
             Stage registerStage = new Stage();
@@ -78,7 +79,8 @@ public class Loginpagecontroller implements Initializable {
         }
     }
 
-    public boolean checkFields(){
+    public boolean checkFields()
+    {
         if (username.getText().isEmpty() || password.getText().isEmpty()){
             errorlabel.setText("Please fill in all fields !!");
             errorlabel.setAlignment(Pos.CENTER);
@@ -88,7 +90,8 @@ public class Loginpagecontroller implements Initializable {
         return true  ;
     }
 
-    public void openMainPage() throws Exception {
+    public void openMainPage() throws Exception
+    {
         if (checkLogin()){
             AnchorPane root1 = FXMLLoader.load(getClass().getResource("../view/MainPage.fxml"));
             Stage stage = new Stage();
@@ -98,13 +101,14 @@ public class Loginpagecontroller implements Initializable {
         }
     }
 
-    public boolean checkLogin() {
+    public boolean checkLogin()
+    {
         if (checkFields()) {
             ArrayList<User> users = User.getUsers();
 
             for (User each : users) {
                 if(each.getUserName().equals(username.getText())
-                        && each.getPassword().equals(password.getText())){
+                        && each.getHashPassword() == (password.getText().hashCode())){
                     return true;
                 }
             }

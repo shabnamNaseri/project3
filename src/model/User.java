@@ -3,12 +3,10 @@ package model;
 import controller.DataBase;
 import controller.MainPageController;
 
-import javax.swing.text.TableView;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Objects;
+import java.util.*;
 
-public class User{
+public class User {
 
     private  int id = -1;
     private String name;
@@ -23,8 +21,8 @@ public class User{
     public  User(MainPageController mainPageController)
     {this.mainPageController = mainPageController;}
 
-
-    public User(int id,String name, String lastName, String userName, String password, int passwordHash, String phoneNumber) {
+    public User(int id,String name, String lastName, String userName, String password, int passwordHash, String phoneNumber)
+    {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -34,15 +32,10 @@ public class User{
         this.phoneNumber = phoneNumber;
     }
 
-    public User(String name ,String lastName)
-    {
-        this.name = name;
-        this.lastName = lastName;
-    }
-
     public User() {}
 
-    public User(String name, String lastName, String userName, String password, String phoneNumber) {
+    public User(String name, String lastName, String userName, String password, String phoneNumber)
+    {
         this.name = name;
         this.lastName = lastName;
         this.userName = userName;
@@ -58,6 +51,7 @@ public class User{
 
     public int getHashPassword()
     {
+        hashPassword = password.hashCode();
         return hashPassword;
     }
 
@@ -67,31 +61,26 @@ public class User{
     public String getName()
     {return name;}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name)
+    {this.name = name;}
 
     public String getLastName()
     {return lastName;}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    public void setLastName(String lastName)
+    {this.lastName = lastName;}
 
     public String getUserName()
     {return userName;}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    public void setUserName(String userName)
+    {this.userName = userName;}
 
-    public String getPassword() {
-        return password;
-    }
+    public String getPassword()
+    {return password;}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setPassword(String password)
+    {this.password = password;}
 
     public String getPhoneNumber()
     {return phoneNumber;}
@@ -99,12 +88,12 @@ public class User{
     public void setPhoneNumber(String phoneNumber)
     {this.phoneNumber = phoneNumber;}
 
-    public static ArrayList<User> getUserArrayList()
+    public  ArrayList<User> getUserArrayList()
     {return userArrayList;}
 
-    public void setUserArrayList(ArrayList<User> userArrayList) {
-        User.userArrayList = userArrayList;
-    }
+    public void setUserArrayList(ArrayList<User> userArrayList)
+    {this.userArrayList = userArrayList;}
+
 
     public static ArrayList<User> getUsers()
     {
@@ -116,7 +105,8 @@ public class User{
         return null;
     }
 
-    public void saveuser() throws Exception {
+    public void saveUser()
+    {
         try {
             id = DataBase.createUser(this);
         } catch (SQLException e) {
@@ -124,9 +114,11 @@ public class User{
         }
     }
 
-    public void addUserTable()
+    public void addUserTable(User user)
     {
-        mainPageController.getTableview().getItems().addAll(Objects.requireNonNull(getUsers()));
+       for (int i = 0 ; i < getUsers().size() ; i++){
+           mainPageController.getTableview().getItems().add(i,user);
+       }
     }
 
 

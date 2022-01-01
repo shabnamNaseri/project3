@@ -13,9 +13,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.User;
+
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
@@ -53,8 +53,7 @@ public class MainPageController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         User user = new User(this);
-        ArrayList<User> users = User.getUsers();
-        user.addUserTable();
+        user.addUserTable(user);
 
         viewProfile.setOnAction(event -> {
             try {
@@ -80,9 +79,8 @@ public class MainPageController implements Initializable {
         });
     }
 
-    public void Exit(){
-        ((Stage)exit.getScene().getWindow()).close();
-
+    public void Exit() {
+        ((Stage) exit.getScene().getWindow()).close();
     }
 
     public void viewProfile() throws IOException {
@@ -112,11 +110,4 @@ public class MainPageController implements Initializable {
 
     public TableView<User> getTableview()
     {return tableview;}
-
-    public void showUsers()
-    {
-
-    }
-
-
 }

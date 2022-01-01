@@ -37,10 +37,12 @@ public class ViewProfileController implements Initializable {
 
     @FXML
     private Button EditBTN;
+
     private String saveName , saveBio;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         nameText.setText(saveName);
         bioText.setText(saveBio);
         editLBL.setText("");
@@ -48,9 +50,8 @@ public class ViewProfileController implements Initializable {
         EditBTN.setOnAction(event -> EditProfile());
     }
 
-    public void exit(){
-        ((Stage)exitBTN.getScene().getWindow()).close();
-
+    public void exit()
+    {((Stage)exitBTN.getScene().getWindow()).close();
     }
 
     public void EditProfile(){

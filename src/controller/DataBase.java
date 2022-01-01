@@ -69,5 +69,4 @@ public class DataBase
 
         return users;
     }
-
 }

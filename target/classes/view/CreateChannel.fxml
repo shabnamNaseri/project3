@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="401.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateChannleController">
+<AnchorPane fx:id="anchorPane" prefHeight="402.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateChannelController">
     <children>
         <TableView fx:id="userList" prefHeight="401.0" prefWidth="259.0">
             <columns>
@@ -14,6 +15,11 @@
             </columns>
         </TableView>
         <TextField fx:id="channelName" layoutX="270.0" layoutY="20.0" prefHeight="34.0" prefWidth="149.0" promptText="Enter channel name" />
-        <Button fx:id="createButton" layoutX="270.0" layoutY="332.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" text="Create" />
+        <Group layoutX="270.0" layoutY="311.0">
+            <children>
+                <Button fx:id="createButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" text="Create" />
+                <Button fx:id="closeBTN" layoutY="41.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" text="Close" />
+            </children>
+        </Group>
     </children>
 </AnchorPane>
