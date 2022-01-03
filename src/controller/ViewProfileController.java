@@ -40,6 +40,7 @@ public class ViewProfileController implements Initializable {
 
     private String saveName , saveBio;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -51,10 +52,10 @@ public class ViewProfileController implements Initializable {
     }
 
     public void exit()
-    {((Stage)exitBTN.getScene().getWindow()).close();
-    }
+    {((Stage)exitBTN.getScene().getWindow()).close();}
 
-    public void EditProfile(){
+    public void EditProfile()
+    {
         nameText.setText(nameText.getText());
         bioText.setText(bioText.getText());
         saveName = nameText.getText();

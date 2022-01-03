@@ -2,7 +2,6 @@ package model;
 
 import controller.DataBase;
 import controller.MainPageController;
-
 import java.sql.SQLException;
 import java.util.*;
 
@@ -16,10 +15,7 @@ public class User {
     private int hashPassword;
     private String phoneNumber;
     private static ArrayList<User> userArrayList = new ArrayList<>();
-    private MainPageController mainPageController;
 
-    public  User(MainPageController mainPageController)
-    {this.mainPageController = mainPageController;}
 
     public User(int id,String name, String lastName, String userName, String password, int passwordHash, String phoneNumber)
     {
@@ -114,12 +110,6 @@ public class User {
         }
     }
 
-    public void addUserTable(User user)
-    {
-       for (int i = 0 ; i < getUsers().size() ; i++){
-           mainPageController.getTableview().getItems().add(i,user);
-       }
-    }
 
 
 }

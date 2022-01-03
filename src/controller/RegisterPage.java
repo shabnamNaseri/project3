@@ -46,7 +46,8 @@ public class RegisterPage implements Initializable {
 
 
         @Override
-        public void initialize(URL location, ResourceBundle resources) {
+        public void initialize(URL location, ResourceBundle resources)
+        {
                 errorLBL.setText("");
                 ExitBTN.setOnAction(e -> {
                         exit();
@@ -81,7 +82,8 @@ public class RegisterPage implements Initializable {
                 LoginPageController.registerStage = null;
         }
 
-        public void createUser() throws Exception {
+        public void createUser() throws Exception
+        {
                 if (checkFields()){
                         if (checkPass()){
                                 User user =new User(name.getText() , lastname.getText(),username.getText()
@@ -93,7 +95,8 @@ public class RegisterPage implements Initializable {
                 }
         }
 
-        public boolean checkPass(){
+        public boolean checkPass()
+        {
                 if (!password.getText().equals(confirmpassword.getText())){
                         errorLBL.setText("Passwords do not match !!");
                         errorLBL.setAlignment(Pos.CENTER);
@@ -103,7 +106,8 @@ public class RegisterPage implements Initializable {
                 return true;
         }
 
-        public void clear(){
+        public void clear()
+        {
                 name.setText("");
                 lastname.setText("");
                 username.setText("");
