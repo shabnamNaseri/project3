@@ -26,6 +26,6 @@
                 <Font name="Symbol" size="29.0" />
             </font>
         </Label>
-        <Label fx:id="errorlabel" alignment="CENTER" layoutX="98.0" layoutY="104.0" prefHeight="17.0" prefWidth="273.0" text="label" textFill="#e80e0e" />
+        <Label fx:id="errorLabel" alignment="CENTER" layoutX="98.0" layoutY="104.0" prefHeight="17.0" prefWidth="273.0" text="  " textFill="#e80e0e" />
     </children>
 </AnchorPane>

@@ -51,8 +51,8 @@
                <children>
                   <Pane prefHeight="47.0" prefWidth="310.0" style="-fx-background-color: gray;">
                      <children>
-                        <TextField fx:id="messageText" layoutX="5.0" layoutY="5.0" prefHeight="32.0" prefWidth="248.0" promptText="write message..." style="-fx-background-color: white;" />
-                        <Button fx:id="sendBTN" contentDisplay="CENTER" layoutX="256.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="51.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="51.0" text="Send" textAlignment="JUSTIFY" />
+                        <TextField fx:id="messageText" layoutX="3.0" layoutY="5.0" prefHeight="32.0" prefWidth="233.0" promptText="write message..." style="-fx-background-color: white;" />
+                        <Button fx:id="sendBTN" contentDisplay="CENTER" layoutX="240.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="51.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" text="Send" textAlignment="JUSTIFY" />
                      </children>
                   </Pane>
                </children>
