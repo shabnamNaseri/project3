@@ -59,6 +59,8 @@ public class MainPageController implements Initializable {
 
     static String nameUser;
 
+    static String usernameChannel , saveName;
+
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -111,14 +113,11 @@ public class MainPageController implements Initializable {
 
     public void openCreateChannelPage() throws IOException
     {
-        if(findUser())
-        {
             AnchorPane root = FXMLLoader.load(getClass().getResource("../view/CreateChannel.fxml"));
             Stage channel = new Stage();
             channel.setTitle("Create channel");
             channel.setScene(new Scene(root));
             channel.show();
-        }
     }
 
     public void openCreateGroupPage() throws IOException
@@ -158,4 +157,6 @@ public class MainPageController implements Initializable {
 
         }
     }
+
+
 }

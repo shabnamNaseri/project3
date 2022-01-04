@@ -2,25 +2,32 @@
 
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="402.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateChannelController">
-    <children>
-        <TextField fx:id="channelName" layoutX="270.0" layoutY="20.0" prefHeight="34.0" prefWidth="149.0" promptText="Enter channel name" />
-        <Group layoutX="270.0" layoutY="311.0">
-            <children>
-                <Button fx:id="createButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="156.0" text="Create" />
-                <Button fx:id="closeBTN" layoutY="41.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="157.0" text="Close" />
-            </children>
-        </Group>
-      <Pane prefHeight="402.0" prefWidth="249.0">
+   <children>
+      <TextField fx:id="channelName" layoutX="270.0" layoutY="20.0" prefHeight="34.0" prefWidth="149.0" promptText="Enter channel name" />
+      <Group layoutX="270.0" layoutY="311.0">
          <children>
-            <TextField fx:id="userNameField" layoutX="15.0" layoutY="21.0" prefHeight="31.0" prefWidth="224.0" promptText="Enter username" style="-fx-background-color: white;" />
-            <Button fx:id="searchUser" layoutX="36.0" layoutY="313.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="178.0" text="Search" />
-            <Button fx:id="addUser" layoutX="36.0" layoutY="354.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="178.0" text="Add Users" />
+            <Button fx:id="createButton" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" text="Create" />
+            <Button fx:id="closeBTN" layoutY="41.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="149.0" text="Close" />
+         </children>
+      </Group>
+      <Pane prefHeight="402.0" prefWidth="254.0">
+         <children>
+            <TextField fx:id="userNameFieldChannel" layoutX="26.0" layoutY="17.0" prefHeight="31.0" prefWidth="166.0" promptText="Enter username" style="-fx-background-color: white;" />
+            <Label fx:id="nameUser" layoutX="26.0" layoutY="68.0" prefHeight="31.0" prefWidth="191.0" text=" " />
+            <Group layoutX="50.0" layoutY="311.0">
+               <children>
+                  <Button fx:id="addUser" layoutY="41.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="149.0" text="Add Users" />
+                  <Button fx:id="searchUser" mnemonicParsing="false" prefHeight="33.0" prefWidth="149.0" text="Search" />
+               </children>
+            </Group>
          </children>
       </Pane>
-    </children>
+      <Label fx:id="errorLabel" layoutX="270.0" layoutY="69.0" prefHeight="31.0" prefWidth="149.0" />
+   </children>
 </AnchorPane>

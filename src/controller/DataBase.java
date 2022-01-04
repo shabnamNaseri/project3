@@ -1,19 +1,19 @@
 package controller;
 
+import model.Channel;
 import model.User;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DataBase
-{
+public class DataBase {
+
     private static Connection connection;
     private static Statement statement;
 
-    private DataBase(){}
+    private DataBase() {}
 
 
-    public static void createConnection()
-    {
+    public static void createConnection() {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/Messenger", "root",
                     "anssHpassword9474");
@@ -28,8 +28,7 @@ public class DataBase
         try {
             statement.close();
             connection.close();
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -39,8 +38,8 @@ public class DataBase
         createConnection();
 
         statement.execute(String.format("insert into List(Name,LastName,Username,Password,HashPassword,PhoneNumber)"
-                        + "values('%s','%s','%s','%s','%d','%s')" ,user.getName(),user.getLastName(),user.getUserName(),
-                user.getPassword(),user.getHashPassword(),user.getPhoneNumber()), statement.RETURN_GENERATED_KEYS);
+                        + "values('%s','%s','%s','%s','%d','%s')", user.getName(), user.getLastName(), user.getUserName(),
+                user.getPassword(), user.getHashPassword(), user.getPhoneNumber()), statement.RETURN_GENERATED_KEYS);
 
 
         ResultSet resultSet = statement.getGeneratedKeys();
@@ -57,16 +56,25 @@ public class DataBase
 
         ResultSet result = statement.executeQuery("select * from List");
         ArrayList<User> users = new ArrayList<>();
-        while (result.next())
-        {
-            users.add(new User(result.getInt("Id"),result.getString("Name")
-                    , result.getString("LastName"),result.getString("Username")
-                    , result.getString("Password") , result.getInt("HashPassword")
+        while (result.next()) {
+            users.add(new User(result.getInt("Id"), result.getString("Name")
+                    , result.getString("LastName"), result.getString("Username")
+                    , result.getString("Password"), result.getInt("HashPassword")
                     , result.getString("PhoneNumber")));
         }
 
         closeConnection();
 
         return users;
+    }
+
+    public static void updateProfile(User user) throws SQLException {
+        createConnection();
+
+        statement.execute(String.format("update users set Id = '%d',Name = '%s',LastName = '%s',Username = '%s'" +
+                        ",Password = '%s',HashPassword = '%d',PhoneNumber = '%s')" ,user.getId(), user.getName(), user.getLastName(),
+                user.getUserName(), user.getPassword(), user.getHashPassword(), user.getPhoneNumber()));
+
+        closeConnection();
     }
 }

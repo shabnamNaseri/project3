@@ -1,38 +1,36 @@
 package model;
 
+import controller.DataBase;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Channel {
-    private String ChannelName;
+
+    private String channelName;
     static ArrayList<Channel> channelArrayList = new ArrayList<>();
     static ArrayList<User> channelUser = new ArrayList<>();
 
-    public Channel(String channelName) {
-        ChannelName = channelName;
-    }
 
-    public String getChannelName() {
-        return ChannelName;
-    }
+    public Channel(String channelName)
+    {this.channelName = channelName;}
 
-    public void setChannelName(String channelName) {
-        ChannelName = channelName;
-    }
+    public String getChannelName()
+    {return channelName;}
 
-    public  ArrayList<Channel> getChannelArrayList() {
-        return channelArrayList;
-    }
+    public void setChannelName(String channelName)
+    {this.channelName = channelName;}
 
-    public static void setChannelArrayList(ArrayList<Channel> channelArrayList) {
-        Channel.channelArrayList = channelArrayList;
-    }
+    public static ArrayList<Channel> getChannelArrayList()
+    {return channelArrayList;}
 
-    public  ArrayList<User> getChannelUser() {
-        return channelUser;
-    }
+    public static void setChannelArrayList(ArrayList<Channel> channelArrayList)
+    {Channel.channelArrayList = channelArrayList;}
 
-    public static void setChannelUser(ArrayList<User> channelUser) {
-        Channel.channelUser = channelUser;
-    }
+    public  ArrayList<User> getChannelUser()
+    {return channelUser;}
+
+    public static void setChannelUser(ArrayList<User> channelUser)
+    {Channel.channelUser = channelUser;}
 }
 

@@ -46,8 +46,7 @@ public class LoginPageController implements Initializable {
     private Label errorLabel;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources)
-    {
+    public void initialize(URL location, ResourceBundle resources) {
         errorLabel.setText("");
         RegisterBTN.setOnAction(e -> {
             try {
@@ -67,8 +66,7 @@ public class LoginPageController implements Initializable {
 
     }
 
-    public void openRegisterPage() throws Exception
-    {
+    public void openRegisterPage() throws Exception {
         if (registerStage == null) {
             AnchorPane root = FXMLLoader.load(getClass().getResource("../view/RegisterPage.fxml"));
             Stage registerStage = new Stage();
@@ -80,18 +78,18 @@ public class LoginPageController implements Initializable {
 
     public boolean checkFields()
     {
-        if (username.getText().isEmpty() || password.getText().isEmpty()){
+        if (username.getText().isEmpty() || password.getText().isEmpty()) {
             errorLabel.setText("Please fill in all fields !!");
             errorLabel.setAlignment(Pos.CENTER);
             errorLabel.setTextFill(Paint.valueOf(("#FF0000")));
             return false;
         }
-        return true  ;
+        return true;
     }
 
     public void openMainPage() throws Exception
     {
-        if (checkLogin()){
+        if (checkLogin()) {
             AnchorPane root1 = FXMLLoader.load(getClass().getResource("../view/MainPage.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Messenger");
@@ -100,24 +98,22 @@ public class LoginPageController implements Initializable {
         }
     }
 
-
-    public boolean checkLogin()
-    {
+    public boolean checkLogin() {
         if (checkFields()) {
             ArrayList<User> users = User.getUsers();
             for (User each : users) {
                 if (username.getText().equals(each.getUserName())
-                        && each.getHashPassword() == (password.getText().hashCode())){
+                        && each.getHashPassword() == (password.getText().hashCode())) {
+                    errorLabel.setText("");
+                    MainPageController.usernameChannel = each.getUserName();
+                    MainPageController.saveName = each.getName();
                     return true;
-                }
-                else{
-                    errorLabel.setText("Username or password is incorrect !");
-                    errorLabel.setAlignment(Pos.CENTER);
-                    errorLabel.setTextFill(Paint.valueOf(("#FF0000")));
                 }
             }
         }
+        errorLabel.setText("Username or password is incorrect!");
+        errorLabel.setAlignment(Pos.CENTER);
+        errorLabel.setTextFill(Paint.valueOf(("#FF0000")));
         return false;
     }
-
 }

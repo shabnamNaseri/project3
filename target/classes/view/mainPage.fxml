@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -13,51 +14,55 @@
 
 <AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="387.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainPageController">
     <children>
-        <HBox fx:id="hbox" prefHeight="439.0" prefWidth="389.0">
-            <children>
-                <VBox fx:id="vbox" alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="213.0">
-                    <children>
-                        <ImageView fx:id="image" fitHeight="150.0" fitWidth="165.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
-                            <VBox.margin>
-                                <Insets bottom="110.0" left="30.0" right="5.0" />
-                            </VBox.margin>
-                            <image>
-                                <Image url="@../../../../../Downloads/pngtree-default-avatar-png-image_5407175.jpg" />
-                            </image>
-                        </ImageView>
-                        <Button fx:id="viewProfile" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" text="View Profile">
-                            <VBox.margin>
-                                <Insets left="2.0" />
-                            </VBox.margin>
-                        </Button>
-                        <Button fx:id="createGroup" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" text="Create Group">
-                            <VBox.margin>
-                                <Insets left="2.0" right="2.0" top="8.0" />
-                            </VBox.margin>
-                        </Button>
-                        <Button fx:id="createChannel" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" text="Create Channel">
-                            <VBox.margin>
-                                <Insets left="2.0" right="2.0" top="8.0" />
-                            </VBox.margin>
-                        </Button>
-                        <Button fx:id="exit" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" text="Exit">
-                            <VBox.margin>
-                                <Insets bottom="11.0" left="2.0" right="2.0" top="8.0" />
-                            </VBox.margin>
-                        </Button>
-                    </children>
-                    <HBox.margin>
-                        <Insets />
-                    </HBox.margin>
-                </VBox>
-                <Pane prefHeight="439.0" prefWidth="174.0" style="-fx-background-color: gray;">
-                    <children>
-                        <TextField fx:id="userNameField" layoutX="7.0" layoutY="14.0" prefHeight="31.0" prefWidth="161.0" promptText="Enter username" style="-fx-background-color: white;" />
-                        <Button fx:id="searchBTN" layoutX="13.0" layoutY="393.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="152.0" text="Search" />
-                        <Label fx:id="errorLBL" layoutX="7.0" layoutY="55.0" prefHeight="21.0" prefWidth="161.0" />
-                    </children>
-                </Pane>
-            </children>
-        </HBox>
+      <Group>
+         <children>
+              <HBox fx:id="hbox" prefHeight="439.0" prefWidth="389.0">
+                  <children>
+                      <VBox fx:id="vbox" alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="213.0">
+                          <children>
+                              <ImageView fx:id="image" fitHeight="150.0" fitWidth="165.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+                                  <VBox.margin>
+                                      <Insets bottom="110.0" left="30.0" right="5.0" />
+                                  </VBox.margin>
+                                  <image>
+                                      <Image url="@../../../../../Downloads/pngtree-default-avatar-png-image_5407175.jpg" />
+                                  </image>
+                              </ImageView>
+                              <Button fx:id="viewProfile" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" text="View Profile">
+                                  <VBox.margin>
+                                      <Insets left="2.0" />
+                                  </VBox.margin>
+                              </Button>
+                              <Button fx:id="createGroup" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" text="Create Group">
+                                  <VBox.margin>
+                                      <Insets left="2.0" right="2.0" top="8.0" />
+                                  </VBox.margin>
+                              </Button>
+                              <Button fx:id="createChannel" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" text="Create Channel">
+                                  <VBox.margin>
+                                      <Insets left="2.0" right="2.0" top="8.0" />
+                                  </VBox.margin>
+                              </Button>
+                              <Button fx:id="exit" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="208.0" text="Exit">
+                                  <VBox.margin>
+                                      <Insets bottom="11.0" left="2.0" right="2.0" top="8.0" />
+                                  </VBox.margin>
+                              </Button>
+                          </children>
+                          <HBox.margin>
+                              <Insets />
+                          </HBox.margin>
+                      </VBox>
+                      <Pane prefHeight="439.0" prefWidth="174.0" style="-fx-background-color: gray;">
+                          <children>
+                              <TextField fx:id="userNameField" layoutX="7.0" layoutY="14.0" prefHeight="31.0" prefWidth="161.0" promptText="Enter username" style="-fx-background-color: white;" />
+                              <Button fx:id="searchBTN" layoutX="13.0" layoutY="393.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="152.0" text="Search" />
+                              <Label fx:id="errorLBL" layoutX="7.0" layoutY="55.0" prefHeight="21.0" prefWidth="161.0" />
+                          </children>
+                      </Pane>
+                  </children>
+              </HBox>
+         </children>
+      </Group>
     </children>
 </AnchorPane>

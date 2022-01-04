@@ -2,7 +2,6 @@ package controller;
 
 import javafx.fxml.Initializable;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +12,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import model.User;
 
 public class ChatPageController implements Initializable {
     @FXML
