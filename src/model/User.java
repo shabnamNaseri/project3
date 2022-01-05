@@ -16,20 +16,17 @@ public class User {
     private String phoneNumber;
     private static ArrayList<User> userArrayList = new ArrayList<>();
 
-
-    public User(int id,String name, String lastName, String userName, String password, int passwordHash, String phoneNumber)
+    public User(int id, String name, String lastName, String userName, String password, int hashPassword,
+                String phoneNumber)
     {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
-        this.hashPassword = passwordHash;
+        this.hashPassword = hashPassword;
         this.phoneNumber = phoneNumber;
     }
-
-    public User() {}
-
     public User(String name, String lastName, String userName, String password, String phoneNumber)
     {
         this.name = name;
@@ -101,8 +98,7 @@ public class User {
         return null;
     }
 
-    public void saveUser()
-    {
+    public void saveUser() {
         try {
             id = DataBase.createUser(this);
         } catch (SQLException e) {

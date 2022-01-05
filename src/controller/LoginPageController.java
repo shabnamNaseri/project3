@@ -46,7 +46,8 @@ public class LoginPageController implements Initializable {
     private Label errorLabel;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         errorLabel.setText("");
         RegisterBTN.setOnAction(e -> {
             try {
@@ -66,7 +67,8 @@ public class LoginPageController implements Initializable {
 
     }
 
-    public void openRegisterPage() throws Exception {
+    public void openRegisterPage() throws Exception
+    {
         if (registerStage == null) {
             AnchorPane root = FXMLLoader.load(getClass().getResource("../view/RegisterPage.fxml"));
             Stage registerStage = new Stage();
@@ -98,7 +100,8 @@ public class LoginPageController implements Initializable {
         }
     }
 
-    public boolean checkLogin() {
+    public boolean checkLogin()
+    {
         if (checkFields()) {
             ArrayList<User> users = User.getUsers();
             for (User each : users) {

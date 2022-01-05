@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Group {
+
     private String GroupName;
     static ArrayList<Group> groupArrayList = new ArrayList<>();
     static ArrayList<User> groupUser = new ArrayList<>();

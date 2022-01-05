@@ -33,18 +33,20 @@ public class CreateGroupController implements Initializable {
     @FXML
     private TextField groupName;
 
-
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         closeBTN.setOnAction(event -> Exit());
         createBTN.setOnAction(event -> createGroup());
 
     }
-    public void Exit(){
+    public void Exit()
+    {
         ((Stage)closeBTN.getScene().getWindow()).close();
 
     }
-    public void createGroup(){
+    public void createGroup()
+    {
         Group group= new Group(groupName.getText());
         group.getGroupArrayList().add(group);
     }

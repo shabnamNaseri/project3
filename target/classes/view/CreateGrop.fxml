@@ -8,18 +8,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateGroupController">
-    <children>
+    <Group>
         <TableView fx:id="userList" prefHeight="400.0" prefWidth="251.0">
             <columns>
                 <TableColumn fx:id="list" prefWidth="250.0" text="C1" />
             </columns>
         </TableView>
         <Group layoutX="258.0" layoutY="296.0">
-            <children>
-                <Button fx:id="closeBTN" layoutY="49.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="148.0" text="Close" />
-                <Button fx:id="createBTN" mnemonicParsing="false" prefHeight="37.0" prefWidth="148.0" text="Create" />
-            </children>
+            <Button fx:id="closeBTN" layoutY="49.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="148.0" text="Close" />
+            <Button fx:id="createBTN" mnemonicParsing="false" prefHeight="37.0" prefWidth="148.0" text="Create" />
         </Group>
         <TextField fx:id="groupName" layoutX="261.0" layoutY="14.0" prefHeight="37.0" prefWidth="148.0" promptText="enter group name" />
-    </children>
+    </Group>
 </AnchorPane>
